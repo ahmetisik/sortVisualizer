@@ -37,7 +37,7 @@ btnNewArray.addEventListener("click", function(){
 });
 
 
-// Generiert ein Array der Größe 80
+// Generiert ein Array der Größe 30
 function generateArray(){
     
     container.innerHTML = "";
@@ -51,13 +51,13 @@ function generateArray(){
 
 }
 
-//gibt zufällige Zahl aus im Intervall von min bis max
+//gibt eine zufällige Zahl aus im Intervall von min bis max
 function randomNumber(min, max){
     return Math.floor(Math.random() * (max - min + 1) + min);
     
 }
 
-//damit richtiger Sortieralgorithmus ausgeführt wird
+//damit beim Sortieren der richtige Algorithmus verwendet wird
 bubbleAlgo.addEventListener("click", function(){
     selectedAlgo = "Bubble";
 });
@@ -73,6 +73,7 @@ selectionAlgo.addEventListener("click", function(){
 insertionAlgo.addEventListener("click", function(){
     selectedAlgo = "Insertion";
 });
+
 
 function disableButtons(){
     btnNewArray.classList.add("disabled");
