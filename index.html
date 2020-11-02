@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css" integrity="sha384-DhY6onE6f3zzKbjUPRc2hOzGAdEf4/Dz+WJwBvEYL/lkkIsI3ihufq9hk9K4lVoK" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+
+    <title>Visuelles Sortieren</title>
+  </head>
+  <body>
+
+    <nav class="navbar navbar-dark bg-dark">
+      <div class="container justify-content-center">
+        <a class="navbar-brand " href="#">
+          <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-reception-4" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 11.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-2zm4-3a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5v5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-5zm4-3a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-8zm4-3a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5v11a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-11z"/>
+          </svg>
+          Visuelles Sortieren
+        </a>
+      </div>
+    </nav>
+
+    <div class="container">
+
+      <!--
+      <div class="row">
+        <div class="col-sm">
+          <button type="button" class="btn btn-primary">Sortieren</button>
+        </div>
+        <div class="col-sm">
+          <button type="button" class="btn btn-secondary">neues Array</button>
+        </div>
+        <div class="col-sm">
+          <button type="button" class="btn btn-primary btn-lg">Primary</button>
+        </div>
+        <div class="col-sm">
+          <button type="button" class="btn btn-primary">Primary</button>
+        </div> 
+      </div>
+      -->
+
+      <!--
+      <ul class="list-inline">
+        <li class="list-inline-item"><button type="button" class="btn btn-primary">Sortieren</button></li>
+        <li class="list-inline-item"><button type="button" class="btn btn-secondary">neues Array</button></li>
+        <li class="list-inline-item"><button type="button" class="btn btn-primary btn-lg">Primary</button></li>
+        <li class="list-inline-item"><button type="button" class="btn btn-primary">Primary</button></li>
+      </ul>
+      <hr>
+      -->
+
+      <div>
+      </div>
+
+      <div class="d-flex justify-content-center align-items-end my-4" id="array_container" style="height: 400px;"> 
+      </div>
+
+      <div>
+      </div>
+
+      <hr>
+
+      <ul class="nav nav-pills mb-3 navbar-dark" id="pills-tab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <a class="nav-link active" id="pills-bubble-tab" data-toggle="pill" href="#pills-bubble" role="tab" aria-controls="pills-bubble" aria-selected="true">Bubble Sort</a>
+        </li>
+        <li class="nav-item" role="presentation">
+          <a class="nav-link" id="pills-merge-tab" data-toggle="pill" href="#pills-merge" role="tab" aria-controls="pills-merge" aria-selected="false">Merge Sort</a>
+        </li>
+        <li class="nav-item" role="presentation">
+          <a class="nav-link" id="pills-selection-tab" data-toggle="pill" href="#pills-selection" role="tab" aria-controls="pills-selection" aria-selected="false">Selection Sort</a>
+        </li>
+        <li class="nav-item" role="presentation">
+          <a class=" nav-link" id="pills-insertion-tab" data-toggle="pill" href="#pills-insertion" role="tab" aria-controls="pills-insertion" aria-selected="false">Insertion Sort</a>
+        </li>
+
+        
+        <li class="nav-item ml-auto">
+          <a class="nav-link btn btn-primary" id="btnNewArray" style="margin-right: 5px;">
+            Neues Array
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link ml-auto btn btn-primary" id="btnSort">
+          Sortieren
+          <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-caret-right-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12.14 8.753l-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
+          </svg>
+        </a>
+        </li>
+      </ul>
+      <div class="tab-content" id="pills-tabContent">
+        <div class="tab-pane show active" id="pills-bubble" role="tabpanel" aria-labelledby="pills-bubble-tab">
+          <div class="row">
+            <div class="col-md-8">
+              <div class="card my-4 border-secondary mb-3">
+                <div class="card-body">
+                  <h5 class="card-title">Bubble Sort</h5>
+                  <p class="card-text">
+                    In der Bubble-Phase wird die Eingabe-Liste von links nach rechts durchlaufen. Dabei wird in jedem Schritt das aktuelle Element mit dem rechten Nachbarn verglichen. Falls die beiden Elemente das Sortierkriterium verletzen, werden sie getauscht. Am Ende der Phase steht bei auf- bzw. absteigender Sortierung das größte bzw. kleinste Element der Eingabe am Ende der Liste.
+                    <br><br>
+                    Die Bubble-Phase wird solange wiederholt, bis die Eingabeliste vollständig sortiert ist. Dabei muss das letzte Element des vorherigen Durchlaufs nicht mehr betrachtet werden, da die restliche zu sortierende Eingabe keine größeren bzw. kleineren Elemente mehr enthält.
+                    (Quelle: <a href="https://de.wikipedia.org/wiki/Bubblesort">Wikipedia</a>)
+                    </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card my-4 border-secondary mb-3">
+                <div class="card-body">
+                  <h5 class="card-title">O-Notation</h5>
+                  <p class="card-text">
+                    Worst Case Time: O(n&sup2;) <br><br>
+                    Best Case Time: O(n)        <br><br>
+                    Average Time: O(n&sup2;)    <br><br>
+                   </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane" id="pills-merge" role="tabpanel" aria-labelledby="pills-merge-tab">
+          <div class="row">
+            <div class="col-md-8">
+              <div class="card my-4 border-secondary mb-3">
+                <div class="card-body">
+                  <h5 class="card-title">Merge Sort</h5>
+                  <p class="card-text">
+                    Mergesort betrachtet die zu sortierenden Daten als Liste und zerlegt sie in kleinere Listen, die jede für sich sortiert werden. 
+                    Die sortierten kleinen Listen werden dann im Reißverschlussverfahren zu größeren Listen zusammengefügt (engl. (to) merge), 
+                    bis wieder eine sortierte Gesamtliste erreicht ist. (Quelle: <a href="https://de.wikipedia.org/wiki/Mergesort">Wikipedia</a>)
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card my-4 border-secondary mb-3">
+                <div class="card-body">
+                  <h5 class="card-title">O-Notation</h5>
+                  <p class="card-text">
+                    Worst Case Time: O(n*log(n)) <br><br>
+                    Best Case Time: O(n*log(n))  <br><br>
+                    Average Time: O(n*log(n))  
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane" id="pills-selection" role="tabpanel" aria-labelledby="pills-selection-tab">
+          <div class="row">
+            <div class="col-md-8">
+              <div class="card my-4 border-secondary mb-3">
+                <div class="card-body">
+                  <h5 class="card-title">Selection Sort</h5>
+                  <p class="card-text">
+                    Sei S der sortierte Teil des Arrays (vorne im Array) und U der unsortierte Teil (dahinter). Am Anfang ist S noch leer, U entspricht dem ganzen (restlichen) Array. Das Sortieren durch Auswählen läuft nun folgendermaßen ab:
+                    <br><br>
+                    Suche das kleinste Element in U und vertausche es mit dem ersten Element von U (= das erste Element nach S).
+                    <br><br>
+                    Danach ist das Array bis zu dieser Position sortiert. Das kleinste Element wird in S verschoben (indem S einfach als ein Element länger betrachtet wird, und U nun ein Element später beginnt). S ist um ein Element gewachsen, U um ein Element kürzer geworden. Anschließend wird das Verfahren so lange wiederholt, bis das gesamte Array abgearbeitet worden ist; S umfasst am Ende das gesamte Array, aufsteigend sortiert, U ist leer.
+                    (Quelle: <a href="https://de.wikipedia.org/wiki/Selectionsort">Wikipedia</a>)</p>
+                  </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card my-4 border-secondary mb-3">
+                <div class="card-body">
+                  <h5 class="card-title">O-Notation</h5>
+                  <p class="card-text">
+                    Worst Case Time:  O(n&sup2;)  <br><br>
+                    Best Case Time:   O(n&sup2;)  <br><br>
+                    Average Time:     O(n&sup2;)  
+                   </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane" id="pills-insertion" role="tabpanel" aria-labelledby="pills-insertion-tab">
+          <div class="row">
+            <div class="col-md-8">
+              <div class="card my-4 border-secondary mb-3">
+                <div class="card-body">
+                  <h5 class="card-title">Insertion Sort</h5>
+                  <p class="card-text ">
+                    Das Vorgehen ist mit der Sortierung eines Spielkartenblatts vergleichbar. Am Anfang liegen die Karten des Blatts verdeckt auf dem Tisch. Die Karten werden nacheinander aufgedeckt und an der korrekten Position in das Blatt, das in der Hand gehalten wird, eingefügt. Um die Einfügestelle für eine neue Karte zu finden, wird entweder die Karte sukzessive (von links nach rechts) mit den bereits einsortierten Karten des Blattes verglichen, oder eine binäre Suche durchgeführt. Zu jedem Zeitpunkt sind die Karten in der Hand sortiert und bestehen aus den bereits vom Tisch entnommenen Karten. Zum Einfügen der neuen Karte müssen alle auf der Hand nachfolgenden eine Position weiter nach rechts wandern.
+                    (Quelle: <a href="https://de.wikipedia.org/wiki/Insertionsort">Wikipedia</a>)</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card my-4 border-secondary mb-3">
+                <div class="card-body">
+                  <h5 class="card-title">O-Notation</h5>
+                  <p class="card-text">
+                    Worst Case Time: O(n&sup2;) <br><br>
+                    Best Case Time: O(n)  <br><br>
+                    Average Time: O(n&sup2;) 
+                   </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+  
+
+      </div>
+       
+    </div>
+
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/js/bootstrap.bundle.min.js" integrity="sha384-BOsAfwzjNJHrJ8cZidOg56tcQWfp6y72vEJ8xQ9w6Quywb24iOsW913URv1IS4GD" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+
+    <script src="./SortierAlgorithmen/bubbleSort.js"></script>
+    <script src="./SortierAlgorithmen/insertionSort.js"></script>
+    <script src="./SortierAlgorithmen/mergeSort.js"></script>
+    <script src="./SortierAlgorithmen/selectionSort.js"></script>
+    <script src="./SortierAlgorithmen/visualisize.js"></script>
+
+  </body>
+</html>
