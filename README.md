@@ -1,4 +1,4 @@
-# sortVisualizer
+# Visuelles Sortieren
 
-Sie können das Projekt auf der folgenden Webseite erreichen:
+Sie können das Projekt unter der folgenden Webseite erreichen:
 https://sortiervisualisierer.000webhostapp.com/
